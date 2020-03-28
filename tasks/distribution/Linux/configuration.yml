@@ -5,14 +5,14 @@
   become: true
   file:
     path: /etc/telegraf
-    mode: 0750
+    mode: 0755
     state: directory
 
 - name: Create /etc/telegraf.d directory
   become: true
   file:
     path: /etc/telegraf/telegraf.d
-    mode: 0750
+    mode: 0755
     state: directory
 
 - name: 'Copy the template for versions >= 0.10.0'
@@ -20,7 +20,7 @@
   template:
     src: telegraf.conf.j2
     dest: '{{ telegraf_directory }}/telegraf.conf'
-    mode: 0640
+    mode: 0644
   when:
     - telegraf_version is version_compare('0.10.0', '>=')
   notify:
