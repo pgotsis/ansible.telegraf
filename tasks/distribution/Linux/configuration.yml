@@ -8,7 +8,7 @@
     mode: 0755
     state: directory
 
-- name: Create /etc/telegraf.d directory
+- name: Create /etc/telegraf/telegraf.d directory
   become: true
   file:
     path: /etc/telegraf/telegraf.d
